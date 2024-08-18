@@ -15,8 +15,8 @@ export default function Header(props: HeaderProps) {
 
   return (
     <header className="flex justify-between w-full py-5 items-center">
-        <h1 className="text-3xl">{isGameOver ? "Game Over!" : "snake-game"}</h1>
-        <h1 className="text-3xl">Очки: {score}</h1>
+        <h1 className="text-3xl">{isGameOver ? "Game over!" : "snake-game"}</h1>
+        <h1 className="text-3xl">Score: {score}</h1>
         <div className="flex gap-3">
             <button onClick={restart}><FaRotateRight size={30}/></button>
             {!isGameOver &&
