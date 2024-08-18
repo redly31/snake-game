@@ -14,6 +14,7 @@ function App() {
   const [direction, setDirection] = useState<Direction>("d");
   const [isGameOver, setIsGameOver] = useState<boolean>(false);
   const [isGamePaused, setIsGamePaused] = useState<boolean>(true)
+  const [score, setScore] = useState<number>(0)
   
   const restart = () => {
     window.location.reload()
@@ -33,6 +34,7 @@ function App() {
 
       if (apple.x === newHead.x && apple.y === newHead.y) {
         setApple(generateNewApple(prevSnake));
+        setScore(score + 1)
         return [...prevSnake, newHead];
       } else {
         return [...prevSnake.slice(1), newHead];
@@ -69,7 +71,7 @@ function App() {
 
   return (
     <div className="flex justify-center flex-col items-center">
-      <Header isGamePaused={isGamePaused} setIsGamePaused={setIsGamePaused} isGameOver={isGameOver} restart={restart}/>
+      <Header score={score} isGamePaused={isGamePaused} setIsGamePaused={setIsGamePaused} isGameOver={isGameOver} restart={restart}/>
       <Board apple={apple} snake={snake} />
     </div>
   );
